@@ -16,8 +16,8 @@ public class BaseTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("platformVersion", "14.0");
-        capabilities.setCapability("appium:deviceName", "R58X60DG49W");
+        capabilities.setCapability("platformVersion", "11.0");
+        capabilities.setCapability("appium:deviceName", "emulator-5554");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("appium:app", System.getProperty("user.dir") + "/apk/demo.apk");
         driver = new AndroidDriver(new URL(appiumServer), capabilities);
