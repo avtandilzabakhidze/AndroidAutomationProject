@@ -19,4 +19,12 @@ public abstract class BasePage {
     public WebElement findElement(By locator) {
         return driver.findElement(locator);
     }
+
+    public void click(By locator) {
+        findElement(locator).click();
+    }
+
+    public void type(By locator, String text) {
+        findElement(locator).sendKeys(text);
+    }
 }
