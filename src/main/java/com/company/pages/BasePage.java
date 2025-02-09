@@ -2,6 +2,7 @@ package com.company.pages;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,7 +25,19 @@ public abstract class BasePage {
         findElement(locator).click();
     }
 
+    public String getText(By locator) {
+        return findElement(locator).getText();
+    }
+
     public void type(By locator, String text) {
         findElement(locator).sendKeys(text);
+    }
+
+    public boolean elementIsDisplayed(By locator) {
+        try {
+            return findElement(locator).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 }
