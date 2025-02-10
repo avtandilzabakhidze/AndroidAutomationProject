@@ -3,7 +3,9 @@ package com.company.pages;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -30,13 +32,15 @@ public abstract class BasePage {
     }
 
     public void type(By locator, String text) {
+        findElement(locator).clear();
         findElement(locator).sendKeys(text);
     }
 
     public boolean elementIsDisplayed(By locator) {
         try {
-            return findElement(locator).isDisplayed();
-        } catch (NoSuchElementException e) {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
+        } catch (TimeoutException e) {
             return false;
         }
     }
