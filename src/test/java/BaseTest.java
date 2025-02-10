@@ -36,7 +36,7 @@ public class BaseTest {
         driver.quit();
     }
 
-    public void baseTest(){
+    public void baseLoginTest(){
         loginPage.typeUsername("standard_user");
         loginPage.typePassword("secret_sauce");
         loginPage.clickLogin();

@@ -37,6 +37,14 @@ public class LoginPage extends BasePage {
         click(logOutButton);
     }
 
+    public boolean usernameInputIsDisplayed() {
+        return elementIsDisplayed(username);
+    }
+
+    public boolean passwordInputIsDisplayed() {
+        return elementIsDisplayed(password);
+    }
+
     public boolean loginErrorMessageIsDisplayed(){
        return elementIsDisplayed(loginErrorMessages);
     }
