@@ -11,6 +11,8 @@ public class LoginPage extends BasePage {
     private final By logOutButton = By.xpath("//android.widget.TextView[@text=\"LOGOUT\"]");
     private final By burgerMenu = By.xpath("//android.view.ViewGroup[@content-desc=\"test-Menu\"]/android.view.ViewGroup/android.widget.ImageView");
     private final By loginErrorMessages = By.xpath("//android.view.ViewGroup[@content-desc=\"test-Error message\"]");
+    private final By resetAppState = By.xpath("//android.view.ViewGroup[@content-desc=\"test-RESET APP STATE\"]");
+    private final By homePage = By.xpath("//android.view.ViewGroup[@content-desc=\"test-ALL ITEMS\"]");
 
     public LoginPage(AndroidDriver driver) {
         super(driver);
@@ -35,6 +37,13 @@ public class LoginPage extends BasePage {
     public void logOut(){
         click(burgerMenu);
         click(logOutButton);
+    }
+
+    public void resetAppState(){
+        click(burgerMenu);
+        click(resetAppState);
+        click(burgerMenu);
+        click(homePage);
     }
 
     public boolean usernameInputIsDisplayed() {

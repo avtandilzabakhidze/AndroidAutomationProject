@@ -44,4 +44,16 @@ public abstract class BasePage {
             return false;
         }
     }
+
+    public By getProductByIndex(int index) {
+        return By.xpath("(//android.view.ViewGroup[@content-desc=\"test-ADD TO CART\"])[" + index + "]");
+    }
+
+    public By getRemoveButtonByIndex(int index) {
+        return By.xpath("(//android.view.ViewGroup[@content-desc=\"test-REMOVE\"])[" + index + "]");
+    }
+
+    public By getProductCardByNumber(String number) {
+        return By.xpath("//android.widget.TextView[@text='" + number + "']");
+    }
 }

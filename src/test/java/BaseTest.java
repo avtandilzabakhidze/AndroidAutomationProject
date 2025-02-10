@@ -1,4 +1,5 @@
 import com.company.pages.LoginPage;
+import com.company.pages.ProductPage;
 import com.company.pages.ProductDetailPage;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -12,6 +13,7 @@ public class BaseTest {
     protected AndroidDriver driver;
     protected LoginPage loginPage;
     protected ProductDetailPage productDetailPage;
+    protected ProductPage productPage;
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
@@ -32,6 +34,7 @@ public class BaseTest {
         driver = new AndroidDriver(new URL(appiumServer), capabilities);
         loginPage = new LoginPage(driver);
         productDetailPage = new ProductDetailPage(driver);
+        productPage = new ProductPage(driver);
     }
 
     @AfterClass
