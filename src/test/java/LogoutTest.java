@@ -2,7 +2,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LogoutTest extends BaseTest{
-    @Test
+    @Test(priority = 1)
     public void testLogout(){
         baseLogin();
         loginPage.logOut();

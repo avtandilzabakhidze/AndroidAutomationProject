@@ -9,7 +9,7 @@ public class ProductTest extends BaseTest {
         loginPage.resetAppState();
     }
 
-    @Test
+    @Test(priority = 1)
     public void productDetails() {
         baseLogin();
         productDetailPage.openFirstProduct();
@@ -19,21 +19,21 @@ public class ProductTest extends BaseTest {
         Assert.assertTrue(productDetailPage.isFirstProductTitleDisplayed(), "\n Product Title did not display \n");
     }
 
-    @Test
+    @Test(priority = 2)
     public void testSelectFirstProduct() {
         productPage.selectFirstProduct();
         Assert.assertTrue(productPage.isProductSelected(),
                 "\n First product was not selected \n");
     }
 
-    @Test
+    @Test(priority = 3)
     public void testSelectSecondProduct() {
         productPage.selectSecondProduct();
         Assert.assertTrue(productPage.isProductSelected(),
                 "\n Second product was not selected \n");
     }
 
-    @Test
+    @Test(priority = 4)
     public void testRemoveFirstProduct() {
         productPage.selectFirstProduct();
         productPage.removeFirstProduct();
@@ -41,7 +41,7 @@ public class ProductTest extends BaseTest {
                 "\n First product was not removed \n");
     }
 
-    @Test
+    @Test(priority = 5)
     public void testRemoveSecondProduct() {
         productPage.selectSecondProduct();
         productPage.removeSecondProduct();
