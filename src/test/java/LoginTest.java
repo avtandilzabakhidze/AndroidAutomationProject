@@ -2,7 +2,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest{
-    @Test
+    @Test(priority = 1)
     public void testLockedOutUser(){
         loginPage.typeUsername("locked_out_user");
         loginPage.typePassword("secret_sauce");
@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest{
         Assert.assertTrue(loginPage.loginErrorMessageIsDisplayed(),"\n error message did not display \n");
     }
 
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void testEmptyPassword(){
         loginPage.typeUsername("locked_out_user");
         loginPage.typePassword("");
@@ -20,7 +20,7 @@ public class LoginTest extends BaseTest{
         Assert.assertTrue(loginPage.loginErrorMessageIsDisplayed(),"\n error message did not display \n");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 3)
     public void testEmptyUsername(){
         loginPage.typeUsername("");
         loginPage.typeUsername("secret_sauce");
@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest{
         Assert.assertTrue(loginPage.loginErrorMessageIsDisplayed(),"\n error message did not display \n");
     }
 
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void testIncorrectUsername(){
         loginPage.typeUsername("123");
         loginPage.typePassword("secret_sauce");
@@ -38,7 +38,7 @@ public class LoginTest extends BaseTest{
         Assert.assertTrue(loginPage.loginErrorMessageIsDisplayed(),"\n error message did not display \n");
     }
 
-    @Test
+    @Test(priority = 5)
     public void testIncorrectPassword(){
         loginPage.typeUsername("standard_user");
         loginPage.typePassword("123");
@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest{
         Assert.assertTrue(loginPage.loginErrorMessageIsDisplayed(),"\n error message did not display \n");
     }
 
-    @Test(priority = 4)
+    @Test(priority = 6)
     public void testValidParams(){
         loginPage.typeUsername("standard_user");
         loginPage.typePassword("secret_sauce");

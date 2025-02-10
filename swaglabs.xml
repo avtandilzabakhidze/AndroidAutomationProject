@@ -4,6 +4,9 @@
     <test name="Tests">
         <classes>
             <class name="LoginTest"/>
+            <class name="LogoutTest"/>
+            <class name="OrderTest"/>
+            <class name="ProductTest"/>
         </classes>
     </test>
 </suite>
