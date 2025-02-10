@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 public class LogoutTest extends BaseTest{
     @Test
     public void testLogout(){
-        baseLoginTest();
+        baseLogin();
         loginPage.logOut();
 
         Assert.assertTrue(loginPage.usernameInputIsDisplayed(),"\n username input is not displayed \n");

@@ -1,15 +1,17 @@
 import com.company.pages.LoginPage;
+import com.company.pages.ProductDetailPage;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected AndroidDriver driver;
     protected LoginPage loginPage;
+    protected ProductDetailPage productDetailPage;
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
@@ -29,6 +31,7 @@ public class BaseTest {
 
         driver = new AndroidDriver(new URL(appiumServer), capabilities);
         loginPage = new LoginPage(driver);
+        productDetailPage = new ProductDetailPage(driver);
     }
 
     @AfterClass
@@ -36,7 +39,7 @@ public class BaseTest {
         driver.quit();
     }
 
-    public void baseLoginTest(){
+    public void baseLogin(){
         loginPage.typeUsername("standard_user");
         loginPage.typePassword("secret_sauce");
         loginPage.clickLogin();
