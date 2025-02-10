@@ -1,6 +1,7 @@
 import com.company.pages.LoginPage;
-import com.company.pages.ProductPage;
+import com.company.pages.OrderPage;
 import com.company.pages.ProductDetailPage;
+import com.company.pages.ProductPage;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
@@ -14,6 +15,7 @@ public class BaseTest {
     protected LoginPage loginPage;
     protected ProductDetailPage productDetailPage;
     protected ProductPage productPage;
+    protected OrderPage orderPage;
 
     @BeforeClass
     public void setUp() throws MalformedURLException {
@@ -35,6 +37,7 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         productDetailPage = new ProductDetailPage(driver);
         productPage = new ProductPage(driver);
+        orderPage = new OrderPage(driver);
     }
 
     @AfterClass
@@ -42,7 +45,7 @@ public class BaseTest {
         driver.quit();
     }
 
-    public void baseLogin(){
+    public void baseLogin() {
         loginPage.typeUsername("standard_user");
         loginPage.typePassword("secret_sauce");
         loginPage.clickLogin();

@@ -1,9 +1,12 @@
 package com.company.pages;
 
+import com.google.common.collect.ImmutableMap;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -55,5 +58,20 @@ public abstract class BasePage {
 
     public By getProductCardByNumber(String number) {
         return By.xpath("//android.widget.TextView[@text='" + number + "']");
+    }
+
+    public boolean scrollToDescription(String description) {
+        String uiAutomatorScroll = String.format(
+                "new UiScrollable(new UiSelector().scrollable(true))" +
+                        ".scrollIntoView(new UiSelector().description(\"%s\"));",
+                description
+        );
+
+        try {
+            driver.findElement(AppiumBy.androidUIAutomator(uiAutomatorScroll));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 }
