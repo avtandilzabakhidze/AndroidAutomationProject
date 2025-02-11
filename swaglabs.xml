@@ -3,10 +3,10 @@
 <suite name="TestSuite">
     <test name="Tests">
         <classes>
-            <class name="LoginTest"/>
-            <class name="LogoutTest"/>
             <class name="OrderTest"/>
+            <class name="LoginTest"/>
             <class name="ProductTest"/>
+            <class name="LogoutTest"/>
         </classes>
     </test>
 </suite>
