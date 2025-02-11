@@ -7,7 +7,6 @@ import io.qameta.allure.*;
 public class ProductTest extends BaseTest {
 
     @AfterMethod
-    @Description("Reset the application state after each test to ensure test independence.")
     public void tearDown() {
         loginPage.resetAppState();
     }
