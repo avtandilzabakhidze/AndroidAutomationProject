@@ -1,14 +1,20 @@
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+import io.qameta.allure.*;
 
+@Epic("Order Management")
 public class OrderTest extends BaseTest {
+
     @AfterMethod
+    @Description("Reset the application state after each test to ensure test independence.")
     public void tearDown() {
         loginPage.resetAppState();
     }
 
     @Test(priority = 1)
+    @Description("Verify that a user can successfully order the first product.")
+    @Story("Order Single Product Test")
     public void testOrderFirstProduct() {
         baseLogin();
         orderPage.selectFirstProduct();
@@ -23,6 +29,8 @@ public class OrderTest extends BaseTest {
     }
 
     @Test(priority = 2)
+    @Description("Verify that a user can successfully order the second product.")
+    @Story("Order Multiple Products Test")
     public void testOrderSecondProduct() {
         orderPage.selectSecondProduct();
         orderPage.openCart();
@@ -36,6 +44,8 @@ public class OrderTest extends BaseTest {
     }
 
     @Test(priority = 3)
+    @Description("Verify that the order process does not proceed with incomplete customer details.")
+    @Story("Order Validation Test")
     public void testIncompleteCustomerDetails() {
         orderPage.selectFirstProduct();
         orderPage.openCart();
