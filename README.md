@@ -1,4 +1,4 @@
-# Android Automation Testing Project
+# MobileTestAutomation
 
 This repository contains an Android automation testing project developed using **Appium** and **Selenium** with **Java**. The project is designed to automate testing for an APK.
 
